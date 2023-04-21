@@ -25,6 +25,10 @@ public class PlayerInteract : MonoBehaviour
                 {
                     knife.Interact();
                 }
+                if (collider.TryGetComponent(out Wardrobe wardrobe))
+                {
+                    wardrobe.Interact();
+                }
             }
         }
     }

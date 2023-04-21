@@ -6,7 +6,7 @@ public class Phone : MonoBehaviour
 {
     public void Start()
     {
-        FindObjectOfType<AudioMenager>().Play("Ringtone");
+        StartCoroutine(Waiter());
     }
     public void Interact()
     {
@@ -14,5 +14,11 @@ public class Phone : MonoBehaviour
         FindObjectOfType<AudioMenager>().Stop("Ringtone");
         FindObjectOfType<AudioMenager>().Play("Dialogue");
 
+    }
+
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        FindObjectOfType<AudioMenager>().Play("Ringtone");
     }
 }

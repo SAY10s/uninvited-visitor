@@ -6,7 +6,10 @@ public class PlayerInteract : MonoBehaviour
 {
     public float interactRange = 2f;
 
-
+    public void Start()
+    {
+        FindObjectOfType<AudioMenager>().Play("Finally Home");
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radio : MonoBehaviour, IInteractable
+public class Radio : MonoBehaviour
 {
-    private bool isPlaying = true;
+    public MainDoors mainDoors;
     void Start()
     {
         FindObjectOfType<AudioMenager>().Play("Heartaches");
     }
-    public void Interact()
+
+    public void WarnAboutEntities()
     {
-        if (isPlaying)
-        {
-            FindObjectOfType<AudioMenager>().Stop("Heartaches");
-        }
-        else
-        {
-            FindObjectOfType<AudioMenager>().Play("Heartaches");
-        }
-        isPlaying = !isPlaying;
-        Debug.Log("Radio");
+        StartCoroutine(Waiter());
+
+    }
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        FindObjectOfType<AudioMenager>().Stop("Heartaches");
+        FindObjectOfType<AudioMenager>().Play("Warning");
+        yield return new WaitForSecondsRealtime(48); //48 tyle trwa komunikat
+        Debug.Log("TASK: znajdz cos zeby sie bronic");
+        mainDoors.KnockingOnHeavensDoor();
+
     }
 }
+
+
+
+

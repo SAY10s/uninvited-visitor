@@ -1,14 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class FoodMaking : MonoBehaviour, IInteractable
+public class FoodMaking : MonoBehaviour, IInteractable, HHintable
 {
     public GameObject sandwitch;
     public GameObject knife;
+    public SetState state;
+    public string hintText = "'e': Zrob kanapke";
+    public Sofa sofa;
+
+
+    public void Hint(GameObject uiObject, TMP_Text text)
+    {
+        if(state.isSandwitchMakeable) { 
+            uiObject.SetActive(true);
+            text.SetText(hintText);
+        }
+    }
 
     public void Interact()
-    {
+    {   
+        state.isWardrobeHideable = true;
+        sofa.wolnoMuSiadac = true;
         gameObject.transform.localScale = new Vector3(0, 0, 0);
         sandwitch.transform.localScale = new Vector3(0.0855129287f, 0.0855129138f, 0.0855128989f);
         knife.transform.localScale = new Vector3(0.0109323096f, 0.0101554291f, 0.0121772969f);

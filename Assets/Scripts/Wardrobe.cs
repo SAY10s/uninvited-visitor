@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Wardrobe : MonoBehaviour, IInteractable, HHintable
 {
+
+    public SetState state;
+
     public GameObject player;
     public string hintText = "PLACEHOLDER";
 
@@ -14,8 +17,14 @@ public class Wardrobe : MonoBehaviour, IInteractable, HHintable
 
     public void Hint(GameObject ui, TMP_Text text)
     {
-        Debug.Log("P");
-        ui.SetActive(true);
+        if (state.isWardrobeHideable)
+        {
+            ui.SetActive(true);
+        }
+        else if (!isContaingClothes)
+        {
+            ui.SetActive(true);
+        }
         text.SetText(hintText);
     }
 
@@ -43,6 +52,7 @@ public class Wardrobe : MonoBehaviour, IInteractable, HHintable
             Debug.Log("Przygotuj sobie cos do jedzenia");
             hintText = "Wcisnij 'e' aby wejsc do szafy";
             isContaingClothes = true;
+            state.isSandwitchMakeable = true;
         }
     }
 }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Sofa : MonoBehaviour, IInteractable
+public class Sofa : MonoBehaviour, IInteractable, HHintable
 {
     public CapsuleCollider playerCollider;
     public Radio radio;
@@ -10,12 +11,29 @@ public class Sofa : MonoBehaviour, IInteractable
     public Knfie knfie;
     FirstPersonMovement movement;
     private bool isSitting = false;
-    private bool wolnoMuSiadac = true;
+    public bool wolnoMuSiadac = false;
+    private string hintText = "Wcisnij 'e' aby usiasc";
 
     public void Awake()
     {
         movement = player.GetComponent<FirstPersonMovement>();
+        wolnoMuSiadac = false;
     }
+    public void Start()
+    {
+        wolnoMuSiadac = false;
+    }
+
+    public void Hint(GameObject uiObject, TMP_Text text)
+    {
+        if(wolnoMuSiadac)
+        {
+            uiObject.SetActive(true);
+            text.SetText(hintText);
+        }
+
+    }
+
     public void Interact()
     {
         Debug.Log("XD");
@@ -27,6 +45,7 @@ public class Sofa : MonoBehaviour, IInteractable
             isSitting=true;
             knfie.activateKnifePickup();
             radio.WarnAboutEntities();
+            hintText="Wcisnij 'e' aby wstac";
         }
         else if (wolnoMuSiadac)
         {

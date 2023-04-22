@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
-    //private bool isPlaying = true;
+    public MainDoors mainDoors;
     void Start()
     {
         FindObjectOfType<AudioMenager>().Play("Heartaches");
     }
-    /*public void Interact()
+
+    public void WarnAboutEntities()
     {
-        if (isPlaying)
-        {
-            FindObjectOfType<AudioMenager>().Stop("Heartaches");
-        }
-        else
-        {
-            FindObjectOfType<AudioMenager>().Play("Heartaches");
-        }
-        isPlaying = !isPlaying;
-        Debug.Log("Radio");
-    }*/
+        StartCoroutine(Waiter());
+
+    }
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        FindObjectOfType<AudioMenager>().Stop("Heartaches");
+        //FindObjectOfType<AudioMenager>().Play("Warning");
+        yield return new WaitForSecondsRealtime(1); //tyle trwa komunikat
+        mainDoors.KnockingOnHeavensDoor();
+
+    }
 }
+
+
+
+

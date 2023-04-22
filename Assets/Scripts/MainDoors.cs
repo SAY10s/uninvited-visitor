@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class MainDoors : MonoBehaviour
 {
+    public void KnockingOnHeavensDoor()
+    {
+
+        StartCoroutine(Waiter());
+
+    }
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        FindObjectOfType<AudioMenager>().Play("Knocking");
+    }
     /*
     public void Start()
     {

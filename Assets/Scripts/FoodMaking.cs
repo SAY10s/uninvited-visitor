@@ -36,6 +36,7 @@ public class FoodMaking : MonoBehaviour, IInteractable, HHintable
     void Start()
     {
         sandwitch.transform.localScale = new Vector3(0f, 0f, 0f);
+
     }
 
     // Update is called once per frame

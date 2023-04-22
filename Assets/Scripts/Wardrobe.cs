@@ -15,6 +15,8 @@ public class Wardrobe : MonoBehaviour, IInteractable, HHintable
 
     private bool isInside = false;
 
+    public Task task;
+
     public void Hint(GameObject ui, TMP_Text text)
     {
         if (state.isWardrobeHideable)
@@ -49,6 +51,7 @@ public class Wardrobe : MonoBehaviour, IInteractable, HHintable
         else
         {
             Debug.Log("Wlozono ciuchy do szafy");
+            task.updateTask("Przygotuj sobie cos do jedzenia");
             Debug.Log("Przygotuj sobie cos do jedzenia");
             hintText = "Wcisnij 'e' aby wejsc do szafy";
             isContaingClothes = true;

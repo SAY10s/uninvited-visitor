@@ -19,6 +19,8 @@ public class PlayerInteract : MonoBehaviour
     private bool showUI = false;
     public TMP_Text text;
 
+    public Task task;
+
     public void Start()
     {
         FindObjectOfType<AudioMenager>().Play("Insane");
@@ -31,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
     IEnumerator Waiter()
     {
         yield return new WaitForSecondsRealtime(10);
-        Debug.Log("TASK: Zdejmij plaszcz i odloz go do szafy");
+        task.updateTask("Odloz plaszcz do szafy");
     }
     void Update()
     {

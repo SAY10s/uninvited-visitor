@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radio : MonoBehaviour, IInteractable
+public class Radio : MonoBehaviour
 {
-    private bool isPlaying = true;
+    //private bool isPlaying = true;
     void Start()
     {
         FindObjectOfType<AudioMenager>().Play("Heartaches");
     }
-    public void Interact()
+    /*public void Interact()
     {
         if (isPlaying)
         {
@@ -21,5 +21,5 @@ public class Radio : MonoBehaviour, IInteractable
         }
         isPlaying = !isPlaying;
         Debug.Log("Radio");
-    }
+    }*/
 }

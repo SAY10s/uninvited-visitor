@@ -7,6 +7,7 @@ public class Sofa : MonoBehaviour, IInteractable
     public CapsuleCollider playerCollider;
     public Radio radio;
     public GameObject player;
+    public Knfie knfie;
     FirstPersonMovement movement;
     private bool isSitting = false;
     private bool wolnoMuSiadac = true;
@@ -24,6 +25,7 @@ public class Sofa : MonoBehaviour, IInteractable
             player.transform.position = new Vector3(4.0964489f, 0.203867197f, 4.37153769f);
             movement.speed = 0f;
             isSitting=true;
+            knfie.activateKnifePickup();
             radio.WarnAboutEntities();
         }
         else if (wolnoMuSiadac)

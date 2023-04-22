@@ -21,6 +21,7 @@ public class Radio : MonoBehaviour
         FindObjectOfType<AudioMenager>().Stop("Heartaches");
         //FindObjectOfType<AudioMenager>().Play("Warning");
         yield return new WaitForSecondsRealtime(1); //tyle trwa komunikat
+        Debug.Log("TASK: znajdz cos zeby sie bronic");
         mainDoors.KnockingOnHeavensDoor();
 
     }

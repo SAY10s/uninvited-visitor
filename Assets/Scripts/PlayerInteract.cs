@@ -29,6 +29,7 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            Debug.Log(colliderArray.Length);
             foreach (Collider collider in colliderArray)
             {
                 if (collider.TryGetComponent(out IInteractable interactable))

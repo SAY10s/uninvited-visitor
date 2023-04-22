@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainDoors : MonoBehaviour
 {
+    /*
     public void Start()
     {
         StartCoroutine(Waiter());
@@ -14,4 +15,5 @@ public class MainDoors : MonoBehaviour
         yield return new WaitForSecondsRealtime(10);
         FindObjectOfType<AudioMenager>().Play("Knocking");
     }
+    */
 }

@@ -13,7 +13,6 @@ public class Phone : MonoBehaviour
         Debug.Log("RING RING!");
         FindObjectOfType<AudioMenager>().Stop("Ringtone");
         FindObjectOfType<AudioMenager>().Play("Dialogue");
-
     }
 
     IEnumerator Waiter()

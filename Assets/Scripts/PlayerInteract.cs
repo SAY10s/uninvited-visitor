@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+interface IInteractable
+{
+    public void Interact();
+}
+
 public class PlayerInteract : MonoBehaviour
 {
     public float interactRange = 2f;
 
     public void Start()
     {
-        FindObjectOfType<AudioMenager>().Play("Finally Home");
+        FindObjectOfType<AudioMenager>().Play("Insane");
     }
     void Update()
     {
@@ -17,17 +22,9 @@ public class PlayerInteract : MonoBehaviour
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
-                if (collider.TryGetComponent(out Phone phone))
+                if (collider.TryGetComponent(out IInteractable interactable))
                 {
-                    phone.Interact();
-                }
-                if (collider.TryGetComponent(out Knife knife))
-                {
-                    knife.Interact();
-                }
-                if (collider.TryGetComponent(out Wardrobe wardrobe))
-                {
-                    wardrobe.Interact();
+                    interactable.Interact();
                 }
             }
         }

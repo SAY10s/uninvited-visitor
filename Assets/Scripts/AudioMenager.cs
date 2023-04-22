@@ -10,14 +10,14 @@ public class AudioMenager : MonoBehaviour
     {
         foreach(Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
+            s.source = s.location.gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.spatialBlend = s.spatialBlend;
             s.source.rolloffMode = AudioRolloffMode.Linear;
-            s.source.minDistance = 1;
-            s.source.maxDistance = 80;
+            s.source.minDistance = s.minDistance;
+            s.source.maxDistance = s.maxDistance;
         }
     }
 

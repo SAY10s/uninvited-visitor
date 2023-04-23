@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetState : MonoBehaviour
 {
     [HideInInspector]
+    public bool canPutClothesInside = false;
     public bool isWardrobeHideable = false;
     public bool isSandwitchMakeable = false;
     public bool isDoorKiling = false;

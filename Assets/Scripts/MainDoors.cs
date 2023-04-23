@@ -10,9 +10,7 @@ public class MainDoors : MonoBehaviour
     public InsideDoor door;
     public void KnockingOnHeavensDoor()
     {
-
         StartCoroutine(Waiter());
-
     }
     IEnumerator Waiter()
     {

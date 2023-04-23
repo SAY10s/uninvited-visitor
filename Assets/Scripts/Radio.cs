@@ -19,11 +19,11 @@ public class Radio : MonoBehaviour
     }
     IEnumerator Waiter()
     {
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(3); //10
         FindObjectOfType<AudioMenager>().Stop("Heartaches");
-        FindObjectOfType<AudioMenager>().Play("Warning");
+        //FindObjectOfType<AudioMenager>().Play("Warning");
         task.updateTask("Wysluchaj komunikatu");
-        yield return new WaitForSecondsRealtime(48); //48 tyle trwa komunikat
+        yield return new WaitForSecondsRealtime(1); //48 tyle trwa komunikat
         mainDoors.KnockingOnHeavensDoor();
         task.updateTask("Co? Jakie 'istoty'?");
     }

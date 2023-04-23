@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainDoors : MonoBehaviour
+public class MainDoors : MonoBehaviour, IInteractable, HHintable
 {
+
+
     public Light[] lights;
     public Lights XD;
     public WindowBreak window;
@@ -11,6 +15,32 @@ public class MainDoors : MonoBehaviour
     public Task task;
     public SetState state;
     public Waypointfollower diavolo;
+    public void Hint(GameObject uiObject, TMP_Text text)
+    {
+        if (state.isDoorKiling)
+        {
+            uiObject.SetActive(true);
+            text.SetText("Wcisnij 'e' aby otworzyc drzwi");
+        }
+        if (!state.isDoorKiling && state.isDoorRunable)
+        {
+            uiObject.SetActive(true);
+            text.SetText("Wcisnij 'e' aby otworzyc drzwi");
+        }
+
+    }
+
+    public void Interact()
+    {
+        if (state.isDoorKiling)
+        {
+            Debug.Log("U DIE");
+        }
+        if (!state.isDoorKiling && state.isDoorRunable)
+        {
+            SceneManager.LoadScene("Korytarz");
+        }
+    }
 
     public void KnockingOnHeavensDoor()
     {
@@ -19,11 +49,13 @@ public class MainDoors : MonoBehaviour
     IEnumerator Waiter()
     {
         yield return new WaitForSecondsRealtime(10);
+        state.isDoorKiling = true;
         FindObjectOfType<AudioMenager>().Play("Knocking");
         yield return new WaitForSecondsRealtime(2);
         task.updateTask("NIE OTWIERAJ DRZWI");
         yield return new WaitForSecondsRealtime(18);
         XD.turnOffLightsSound();
+        state.isDoorKiling = false;
         task.updateTask("SCHOWAJ SIE");
         yield return new WaitForSecondsRealtime(1);
         foreach (Light l in lights)
@@ -37,5 +69,8 @@ public class MainDoors : MonoBehaviour
         yield return new WaitForSecondsRealtime(9);
         state.isDiavoloMoving = true;
         diavolo.walk();
+        yield return new WaitForSecondsRealtime(10);
+        state.isDoorRunable = true;
+        task.updateTask("NIE ROZGLADAJ SIE. UCIEKAJ. TERAZ.");
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17996,6 +17996,7 @@ MonoBehaviour:
   player: {fileID: 1917192918}
   knfie: {fileID: 261143335}
   wolnoMuSiadac: 1
+  task: {fileID: 299500377}
 --- !u!65 &1006531990
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29934,6 +29935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6a9e96875e8024abb601cdffa2a03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  task: {fileID: 299500377}
   mainDoors: {fileID: 1819017545}
 --- !u!65 &1764035595
 BoxCollider:
@@ -31852,6 +31854,7 @@ MonoBehaviour:
   state: {fileID: 299500375}
   hintText: Wcisnij 'e' aby zrobic kanapke
   sofa: {fileID: 1006531989}
+  task: {fileID: 299500377}
 --- !u!65 &1814368113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32054,6 +32057,7 @@ MonoBehaviour:
   XD: {fileID: 1502861002}
   window: {fileID: 1696393467}
   door: {fileID: 1465059475}
+  task: {fileID: 299500377}
 --- !u!1 &1820409516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61fb9dde29be32a4780f2b1847099f11, type: 3}

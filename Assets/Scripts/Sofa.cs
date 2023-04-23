@@ -13,6 +13,7 @@ public class Sofa : MonoBehaviour, IInteractable, HHintable
     private bool isSitting = false;
     public bool wolnoMuSiadac = false;
     private string hintText = "Wcisnij 'e' aby usiasc";
+    public Task task;
 
     public void Awake()
     {
@@ -46,6 +47,7 @@ public class Sofa : MonoBehaviour, IInteractable, HHintable
             knfie.activateKnifePickup();
             radio.WarnAboutEntities();
             hintText="Wcisnij 'e' aby wstac";
+            task.updateTask("Zrelaksuj sie i posluchaj radia");
         }
         else if (wolnoMuSiadac)
         {

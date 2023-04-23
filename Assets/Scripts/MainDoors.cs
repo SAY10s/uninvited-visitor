@@ -8,6 +8,7 @@ public class MainDoors : MonoBehaviour
     public Lights XD;
     public WindowBreak window;
     public InsideDoor door;
+    public Task task;
     public void KnockingOnHeavensDoor()
     {
         StartCoroutine(Waiter());
@@ -16,9 +17,11 @@ public class MainDoors : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(10);
         FindObjectOfType<AudioMenager>().Play("Knocking");
-        yield return new WaitForSecondsRealtime(20);
+        yield return new WaitForSecondsRealtime(2);
+        task.updateTask("NIE OTWIERAJ DRZWI");
+        yield return new WaitForSecondsRealtime(18);
         XD.turnOffLightsSound();
-        Debug.Log("TASK: CHOWAJ SIE");
+        task.updateTask("SCHOWAJ SIE");
         yield return new WaitForSecondsRealtime(1);
         foreach (Light l in lights)
         {

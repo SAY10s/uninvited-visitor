@@ -10,6 +10,7 @@ public class FoodMaking : MonoBehaviour, IInteractable, HHintable
     public SetState state;
     public string hintText = "'e': Zrob kanapke";
     public Sofa sofa;
+    public Task task;
 
 
     public void Hint(GameObject uiObject, TMP_Text text)
@@ -30,13 +31,13 @@ public class FoodMaking : MonoBehaviour, IInteractable, HHintable
         //knife.transform.position = new Vector3(-21.4500008f, 0.531000018f, -41.0050011f);
         knife.transform.rotation = Quaternion.Euler(270f, 151.314514f, 0f);
         Debug.Log("Wez jedzenie i zrelaksuj sie na kanapie w salonie");
+        task.updateTask("Wez jedzenie i zrelaksuj sie na kanapie w salonie");
     }
 
     // Start is called before the first frame update
     void Start()
     {
         sandwitch.transform.localScale = new Vector3(0f, 0f, 0f);
-
     }
 
     // Update is called once per frame

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
+    public Task task;
     public MainDoors mainDoors;
     void Start()
     {
@@ -19,11 +20,11 @@ public class Radio : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(10);
         FindObjectOfType<AudioMenager>().Stop("Heartaches");
-        FindObjectOfType<AudioMenager>().Play("Warning");
-        yield return new WaitForSecondsRealtime(48); //48 tyle trwa komunikat
-        Debug.Log("TASK: znajdz cos zeby sie bronic");
+        // FindObjectOfType<AudioMenager>().Play("Warning");
+        task.updateTask("Wysluchaj komunikatu");
+        yield return new WaitForSecondsRealtime(3); //48 tyle trwa komunikat
         mainDoors.KnockingOnHeavensDoor();
-
+        task.updateTask("Co? Jakie 'istoty'?");
     }
 }
 

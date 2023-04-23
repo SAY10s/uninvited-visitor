@@ -7,5 +7,6 @@ public class Lights : MonoBehaviour
     public void turnOffLightsSound()
     {
         FindObjectOfType<AudioMenager>().Play("BreakingLight");
+        Debug.Log("Turning off lights");
     }
 }

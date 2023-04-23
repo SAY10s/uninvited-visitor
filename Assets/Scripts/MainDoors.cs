@@ -9,6 +9,9 @@ public class MainDoors : MonoBehaviour
     public WindowBreak window;
     public InsideDoor door;
     public Task task;
+    public SetState state;
+    public Waypointfollower diavolo;
+
     public void KnockingOnHeavensDoor()
     {
         StartCoroutine(Waiter());
@@ -31,5 +34,8 @@ public class MainDoors : MonoBehaviour
         window.breakWindow();
         yield return new WaitForSecondsRealtime(5);
         door.breakDoor();
+        yield return new WaitForSecondsRealtime(9);
+        state.isDiavoloMoving = true;
+        diavolo.walk();
     }
 }

@@ -39,6 +39,10 @@ public class Wardrobe : MonoBehaviour, IInteractable, HHintable
                 Debug.Log("Wychodzisz z szafy *wink wink*");
                 player.transform.position = new Vector3(7.44399977f, -0.00899994373f, 1.43299997f);
                 hintText = "Wcisnij 'e' aby wejsc do szafy";
+                if (!state.canLeaveWardrobe)
+                {
+                    state.jumpScare();
+                }
             }
             else
             {

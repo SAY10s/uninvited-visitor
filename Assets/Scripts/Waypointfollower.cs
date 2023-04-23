@@ -31,6 +31,5 @@ public class Waypointfollower : MonoBehaviour
 
     public void walk(){
         FindObjectOfType<AudioMenager>().Play("Walk");
-
     }
 }

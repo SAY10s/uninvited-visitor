@@ -35,6 +35,7 @@ public class MainDoors : MonoBehaviour, IInteractable, HHintable
         if (state.isDoorKiling)
         {
             Debug.Log("U DIE");
+            state.jumpScare();
         }
         if (!state.isDoorKiling && state.isDoorRunable)
         {
@@ -67,10 +68,14 @@ public class MainDoors : MonoBehaviour, IInteractable, HHintable
         yield return new WaitForSecondsRealtime(5);
         door.breakDoor();
         yield return new WaitForSecondsRealtime(9);
+        state.canLeaveWardrobe = false;
         state.isDiavoloMoving = true;
         diavolo.walk();
         yield return new WaitForSecondsRealtime(10);
+        state.canLeaveWardrobe = true;
         state.isDoorRunable = true;
         task.updateTask("NIE ROZGLADAJ SIE. UCIEKAJ. TERAZ.");
+        yield return new WaitForSecondsRealtime(5);
+        state.jumpScare();
     }
 }

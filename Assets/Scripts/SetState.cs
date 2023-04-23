@@ -10,4 +10,13 @@ public class SetState : MonoBehaviour
     public bool isDoorKiling = false;
     public bool isDiavoloMoving = false;
     public bool isDoorRunable = false;
+    public bool canLeaveWardrobe = true;
+    public GameObject character;
+
+    public void jumpScare()
+    {
+        character.SetActive(true);
+        FindObjectOfType<AudioMenager>().Play("JumpScare");
+        Time.timeScale = 0;
+    }
 }

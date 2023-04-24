@@ -71,11 +71,16 @@ public class MainDoors : MonoBehaviour, IInteractable, HHintable
         state.canLeaveWardrobe = false;
         state.isDiavoloMoving = true;
         diavolo.walk();
+        if (!state.isHiding)
+        {
+            state.jumpScare();
+        }
+        
         yield return new WaitForSecondsRealtime(10);
         state.canLeaveWardrobe = true;
         state.isDoorRunable = true;
         task.updateTask("NIE ROZGLADAJ SIE. UCIEKAJ. TERAZ.");
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(10);
         state.jumpScare();
     }
 }

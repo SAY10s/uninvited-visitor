@@ -33,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
 
     IEnumerator Waiter()
     {
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(30);
         task.updateTask("Masz na sobie plaszcz. Odloz go do szafy.");
         state.canPutClothesInside = true;
     }

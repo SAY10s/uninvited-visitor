@@ -20,6 +20,7 @@ public class PlayerInteract : MonoBehaviour
     public TMP_Text text;
 
     public Task task;
+    public SetState state;
 
     public void Start()
     {
@@ -32,8 +33,9 @@ public class PlayerInteract : MonoBehaviour
 
     IEnumerator Waiter()
     {
-        yield return new WaitForSecondsRealtime(10);
-        task.updateTask("Odloz plaszcz do szafy");
+        yield return new WaitForSecondsRealtime(30);
+        task.updateTask("Masz na sobie plaszcz. Odloz go do szafy.");
+        state.canPutClothesInside = true;
     }
     void Update()
     {

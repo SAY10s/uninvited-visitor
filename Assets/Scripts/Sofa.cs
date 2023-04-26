@@ -12,7 +12,7 @@ public class Sofa : MonoBehaviour, IInteractable, HHintable
     FirstPersonMovement movement;
     private bool isSitting = false;
     public bool wolnoMuSiadac = false;
-    private string hintText = "Wcisnij 'e' aby usiasc";
+    private string hintText = "Press 'e' to sit down";
     public Task task;
 
     public void Awake()
@@ -37,21 +37,18 @@ public class Sofa : MonoBehaviour, IInteractable, HHintable
 
     public void Interact()
     {
-        Debug.Log("XD");
         if (!isSitting && wolnoMuSiadac) { 
-            Debug.Log("Siadasz");
             playerCollider.height = .5f;
             player.transform.position = new Vector3(4.0964489f, 0.203867197f, 4.37153769f);
             movement.speed = 0f;
             isSitting=true;
             knfie.activateKnifePickup();
             radio.WarnAboutEntities();
-            hintText="Wcisnij 'e' aby wstac";
-            task.updateTask("Zrelaksuj sie i posluchaj radia");
+            hintText="Press e to get up";
+            task.updateTask("Relax and listen to the radio");
         }
         else if (wolnoMuSiadac)
         {
-            Debug.Log("Wstajesz");
             playerCollider.height = 1.8f;
             player.transform.position = new Vector3(5, 0.231000006f, 3.95799994f);
             movement.speed = 2f;

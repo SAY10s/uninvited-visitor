@@ -10,7 +10,7 @@ public class SandwitchInKitchen : MonoBehaviour, IInteractable, HHintable
     public void Hint(GameObject uiObject, TMP_Text text)
     {
         uiObject.SetActive(true);
-        text.SetText("Wcisnij 'e' aby zabrac kanapke");
+        text.SetText("Press 'e' to take the sandwich");
     }
 
     public void Interact()

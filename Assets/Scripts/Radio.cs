@@ -24,7 +24,7 @@ public class Radio : MonoBehaviour
         FindObjectOfType<AudioMenager>().Stop("Heartaches");
         
         FindObjectOfType<AudioMenager>().Play("Warning");
-        task.updateTask("Wysluchaj komunikatu");
+        task.updateTask("Listen to the radio message");
         cc.SetActive(true);
 
         task.subtitles("Uwaga wszystkim sluchaczom, otrzymalismy zgloszenia o dziwnych istotach, ktore probuja dostac sie do domow w okolicy.");
